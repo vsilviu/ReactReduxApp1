@@ -19,6 +19,7 @@ React e impartit in 2 parti
  const App = function() {body} se poate scrie:
  const App = () => {body} (sintaxa de ES6)
 
- Componenta = functie ce intoarce HTML
+Componenta = functie ce intoarce HTML
 
- O componenta per fisier!
+O componenta per fisier!
+

@@ -10,15 +10,17 @@ const API_KEY = 'AIzaSyAyG6EM34TV8XSOBiEZRVBB5cVH6xapkXw';
 //this function is a class
 //it can be used in other jsx'es as <App />
 const App = () => {
-  //jsx to be rendered into html
-  return (
-      <div>hello
-
-      </div>);
+    //jsx to be rendered into html
+    return (
+        <div>hello
+            <SearchBar />
+        </div>
+    );
 };
 
 //babeljs.io as reference
 
 //tell react dom to what dom node to render
 //here, insert in the div with class container
-ReactDOM.render(<App />, document.querySelector('.container'));
+ReactDOM.render(<App />,
+    document.querySelector('.container'));
