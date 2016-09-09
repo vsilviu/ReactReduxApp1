@@ -30,3 +30,6 @@ State = status componenta ce determina re-rendering
         numai componentele class based au state
         practic, tine variabile ale componentei
         care ar trebui modificate prin event handlers
+
+Downwards data flow: componentele parinte se ocupa de data fetching
+
