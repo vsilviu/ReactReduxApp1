@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
 
-import App from './components/app';
-import reducers from './reducers';
+import SearchBar from './components/search_bar';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+//youtube api key
+const API_KEY = 'AIzaSyAyG6EM34TV8XSOBiEZRVBB5cVH6xapkXw';
 
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
-  </Provider>
-  , document.querySelector('.container'));
+//react code for creating a component
+//this function is a class
+//it can be used in other jsx'es as <App />
+const App = () => {
+  //jsx to be rendered into html
+  return (
+      <div>hello
+
+      </div>);
+};
+
+//babeljs.io as reference
+
+//tell react dom to what dom node to render
+//here, insert in the div with class container
+ReactDOM.render(<App />, document.querySelector('.container'));

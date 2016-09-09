@@ -1,0 +1,24 @@
+Observatii React
+
+JSX = limbaj de React ce va fi
+transformat prin transpile in cod nativ js
+
+Referinta buna ptr exemplu:
+babeljs.io
+
+Sintaxa de import cauta in node_modules
+
+Pasi de utilizare React:
+ - creare componenta
+ - randare componenta
+
+React e impartit in 2 parti
+ - React tine logica de creare componentna
+ - ReactDOM tine logica de randare componenta
+
+ const App = function() {body} se poate scrie:
+ const App = () => {body} (sintaxa de ES6)
+
+ Componenta = functie ce intoarce HTML
+
+ O componenta per fisier!
