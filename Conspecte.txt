@@ -23,3 +23,10 @@ Componenta = functie ce intoarce HTML
 
 O componenta per fisier!
 
+Event handlers -> controller component element
+
+State = status componenta ce determina re-rendering
+        js object to handle user events
+        numai componentele class based au state
+        practic, tine variabile ale componentei
+        care ar trebui modificate prin event handlers

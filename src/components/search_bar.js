@@ -10,13 +10,24 @@ import React, {Component} from 'react';
 
 //class based component
 class SearchBar extends Component {
+    //called when instantiating
+    constructor(props) {
+        super(props);
+        this.state = {term: ''};
+    }
+
     //needs to define render()
     //do NOT make static
     render() {
         return (
             //ES6 syntax, simplified for one arg fct
-            <input onChange={event => console.log(event.target.value)
-            }/>
+            //controller form element
+            //value changes when state changes
+            <input onChange={event => {
+            //triggers re-rendering
+            this.setState({term : event.target.value});
+            console.log(this.state.term);
+            }}/>
         );
     }
 
