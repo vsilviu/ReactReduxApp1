@@ -23,11 +23,14 @@ class SearchBar extends Component {
             //ES6 syntax, simplified for one arg fct
             //controller form element
             //value changes when state changes
-            <input onChange={event => {
-            //triggers re-rendering
-            this.setState({term : event.target.value});
-            console.log(this.state.term);
-            }}/>
+            <div className="search-bar">
+                <input onChange={event => {
+                //triggers re-rendering
+                this.setState({term : event.target.value});
+                console.log(this.state.term);
+                }}
+                       placeholder="Search something..."/>
+            </div>
         );
     }
 

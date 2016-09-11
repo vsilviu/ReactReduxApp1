@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search'
 
 //local imports
+import VideoDetails from './components/video_detail';
 import VideoList from './components/video_list';
 import SearchBar from './components/search_bar';
 
@@ -15,17 +16,28 @@ class App extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {videos: []};
+        this.state = {
+            videos: [],
+            selectedVideo: null
+        };
 
         //nice ES6 syntax when key=value (videos)
-        YTSearch({key: API_KEY, term: 'surfboards'}, videos => this.setState({videos}));
+        YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+            this.setState({
+                videos: videos,
+                selectedVideo: videos[0]
+            });
+        });
     }
 
     render() {
         return (
-            <div>hello
+            <div>
                 <SearchBar />
-                <VideoList videos={this.state.videos} />
+                <VideoList
+                    onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+                    videos={this.state.videos}/>
+                <VideoDetails video={this.state.selectedVideo}/>
             </div>
         );
     }
@@ -45,5 +57,4 @@ class App extends Component {
 
 //tell react dom to what dom node to render
 //here, insert in the div with class container
-ReactDOM.render(<App />,
-    document.querySelector('.container'));
+ReactDOM.render(<App />, document.querySelector('.container'));
