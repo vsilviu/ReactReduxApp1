@@ -18,11 +18,17 @@ class App extends Component {
         super(props);
         this.state = {
             videos: [],
-            selectedVideo: null
+            selectedVideo: null,
+            searchTerm: 'surfboards'
         };
 
+        this.videoSearch(this.state.searchTerm);
         //nice ES6 syntax when key=value (videos)
-        YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+    }
+
+    videoSearch(term) {
+        this.setState({searchTerm: term});
+        YTSearch({key: API_KEY, term: term}, (videos) => {
             this.setState({
                 videos: videos,
                 selectedVideo: videos[0]
@@ -31,13 +37,12 @@ class App extends Component {
     }
 
     render() {
+        //searchTerm will be set in SearchBar component
         return (
             <div>
-                <SearchBar />
+                <SearchBar onSearchTerm={searchTerm => this.videoSearch(searchTerm)}/>
                 <VideoDetails video={this.state.selectedVideo}/>
-                <VideoList
-                    onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-                    videos={this.state.videos}/>
+                <VideoList onVideoSelect={selectedVideo => this.setState({selectedVideo})} videos={this.state.videos}/>
             </div>
         );
     }

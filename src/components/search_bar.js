@@ -24,14 +24,15 @@ class SearchBar extends Component {
             //controller form element
             //value changes when state changes
             <div className="search-bar">
-                <input onChange={event => {
-                //triggers re-rendering
-                this.setState({term : event.target.value});
-                console.log(this.state.term);
-                }}
+                <input onChange={event => { this.onInputChange(event.target.value);}}
                        placeholder="Search something..."/>
             </div>
         );
+    }
+
+    onInputChange(term) {
+        this.setState({term});
+        this.props.onSearchTerm(term);
     }
 
     //event handler to know when input's info changes
