@@ -8,6 +8,7 @@ export default function ActiveBookReducer(state = null, action) {
     switch (action.type) {
         case 'BOOK_SELECTED':
             return action.payload;
+        default:
+            return state; //if we don't care about the action, don't change the state;
     }
-    return state; //if we don't care about the action, don't change the state;
 }
