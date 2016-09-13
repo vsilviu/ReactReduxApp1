@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {selectBook} from '../actions/index'; //the action creator
+import {bindActionCreators} from 'redux'; //sends action to all reducers
 
 //this will be a container (smart vs dumb component)
 //it will be aware of the state contained in redux
@@ -36,5 +38,17 @@ function mapStateToProps(state) {
     }
 }
 
+//anthing returnd here will end up as props on the BookList
+//container
+//so...selectBook action will be available by this.props!
+//(left name)
+function mapDispatchToProps(dispatch) {
+    //the code for dispatching action to all reducers
+    //when we call selectBook action creator!
+    return bindActionCreators({selectBook: selectBook}, dispatch);
+}
+
 //how to create a container
-export default connect(mapStateToProps)(BookList);
+//the container needs to know about the new dispatchMethod
+//we will make it available as a prop
+export default connect(mapStateToProps, mapDispatchToProps)(BookList);
