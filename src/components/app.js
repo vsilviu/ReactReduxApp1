@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import BookList from '../containers/book-list';
+import BookDetails from '../containers/book-detail';
 
 //will only render the main things on screen
 export default class App extends Component {
@@ -8,6 +9,7 @@ export default class App extends Component {
         return (
             <div>
                 <BookList/>
+                <BookDetails/>
             </div>
         );
     }
